@@ -16,7 +16,7 @@
 ![img_3.png](img_3.png)
 
 
--> 최신 버전 사용을 권장 (현재 1.1.3)
+최신 버전 사용 권장
 
 ### 라이브러리 적용 예시
 
@@ -53,3 +53,10 @@
 3. ``@ElementCollection``
 
 ## 기존 대비 성능
+PK(Auto Increment) 제외하고 컬럼이 8개인 엔티티 1000개 INSERT 성능 비교
+
+### JdbcTemplate 을 사용하는 Bulk Insert
+![img_4.png](img_4.png)
+
+### Bulky 라이브러리
+![img_5.png](img_5.png)

@@ -1,4 +1,4 @@
-package com.kwanse.bulky_dummy;
+package com.kwanse.bulky;
 
 import java.util.List;
 import java.util.stream.Collectors;

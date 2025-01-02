@@ -1,14 +1,12 @@
-package com.kwanse.bulky_dummy;
+package com.kwanse.bulky;
 
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
 @AutoConfiguration
-@ConditionalOnProperty(name = "bulky", havingValue = "on")
 public class BulkyConfig {
 
     @Bean

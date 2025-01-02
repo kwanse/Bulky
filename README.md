@@ -6,10 +6,25 @@
 매번 작성해야 하는 JdbcTemplate 기반의 Bulk Insert 코드를 작성하는데 피로감을 느껴 개발하였습니다
 
 
-직접 Bulk Insert 를 작성하는 것보다 성능은 떨어집니다
 
 ## 사용법
 ``bulkyTemplate.batchInsert(articles);``
+
+### 라이브러리 설정 방법
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+### 라이브러리 적용 예시
+
+**기존 코드**
+![img_1.png](img_1.png)
+
+
+
+**Bulky 라이브러리 적용 후 코드**
+![img.png](img.png)
+(Seat 는 복합 PK 를 가진 엔티티)
 
 ## 기능
 1. 쿼리 작성

@@ -31,7 +31,7 @@ public final class BulkyTemplate {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public <T> void batchInsert(List<T> entities) throws IllegalAccessException {
+    public <T> void batchInsert(List<T> entities) {
         if (entities.isEmpty()) {
             return;
         }
@@ -47,7 +47,11 @@ public final class BulkyTemplate {
         List<Object[]> batchParams = new ArrayList<>();
         for (T entity : entities) {
             List<Object> values = new ArrayList<>();
-            buildValues(entity, values);
+            try {
+                buildValues(entity, values);
+            } catch (IllegalAccessException e) {
+                throw new BulkyException(e);
+            }
             batchParams.add(values.toArray());
         }
 

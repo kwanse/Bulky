@@ -6,10 +6,8 @@ import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.StreamSupport;
 
 @Component
 public final class BulkyTemplate {
@@ -29,6 +27,16 @@ public final class BulkyTemplate {
 
     public BulkyTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public <T> void batchInsert(Iterable<T> entities) {
+        if (entities == null) {
+            throw new IllegalArgumentException("entities is null");
+        }
+
+        List<T> entityList = StreamSupport.stream(entities.spliterator(), false)
+                .toList();
+        batchInsert(entityList);
     }
 
     public <T> void batchInsert(List<T> entities) {
